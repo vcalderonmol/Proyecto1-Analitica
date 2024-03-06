@@ -1,0 +1,284 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fmodern\fcharset0 Courier;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;\red25\green25\blue25;\red255\green255\blue255;\red25\green25\blue25;
+}
+{\*\expandedcolortbl;;\cssrgb\c12941\c12941\c12941;\cssrgb\c100000\c100000\c100000;\cssrgb\c12941\c12941\c12941;
+}
+\margl1440\margr1440\vieww25400\viewh16000\viewkind0
+\deftab720
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 date                      object X -> Evitar indexaci\'f3n en el tiempo \
+quarter                   object \
+department                object\
+day                       object\
+team                       int64 -> tomada como categorica\
+targeted_productivity    float64\
+smv                      float64\
+wip                      float64 -> como primera media promedio\
+over_time                  int64 -> tomada como continua, su comportamiento se asemeja a uno  continuo\
+\
+incentive                  int64 X -> Tomada como categ\'f3rica, pero se retira la variable por el exceso en el desbalance de clases\
+\
+idle_time                float64 \cf4 \cb3 \outl0\strokewidth0 X -> Tomada como categ\'f3rica, pero se retira la variable por el 	exceso en el desbalance de clases *\
+\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+idle_men                   int64 \cf4 \cb3 \outl0\strokewidth0 X -> Tomada como categ\'f3rica, pero se retira la variable por el 	exceso en el desbalance de clases *\
+\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+no_of_style_change         int64 -> tomada como categ\'f3rica\
+no_of_workers            float64\
+actual_productivity      float64\
+\
+\
+\
+Y no normalizada\
+\
+Todas:\
+\
+Train: \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 MAE: 0.10117637913287357\
+MSE: 0.01902406915114384\
+RMSE: 0.13792776787559435\
+R2: 0.37925521017318264
+\f0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf2 \
+Test:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 MAE: 0.11274825874423028\
+MSE: 0.024026651120765068\
+RMSE: 0.15500532610450865\
+R2: 0.19611206108241208\
+\
+\
+Errores:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {{\NeXTGraphic Pasted Graphic.png \width14900 \height9900 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \
+Lasso:\
+Coeficiente de targeted_productivity: 0.06453489108762944\
+Coeficiente de smv: -0.006418443927960287\
+Coeficiente de wip: 0.0005176629122646237\
+Coeficiente de idle_men: -0.022803822302730755\
+Intercept:  0.7342287210525688\
+\
+Train:\
+MAE: 0.11116819630635905\
+MSE: 0.02384460678461315\
+RMSE: 0.15500532610450865\
+R2: 0.2219637497413195\
+\
+\
+Test:
+\f0 \
+
+\f1 MAE: 0.11002066214017973\
+MSE: 0.02497585219228964\
+RMSE: 0.15500532610450865\
+R2: 0.1643535238992262
+\f0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf2 \
+Errores:\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {{\NeXTGraphic Pasted Graphic 1.png \width12980 \height9860 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+Bagging: \
+\
+Train:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 M\'e9tricas de evaluaci\'f3n para el conjunto de entrenamiento:\
+MAE: 0.10837724847860092\
+MSE: 0.023508841663527888\
+RMSE: 0.15332593278218754\
+R2: 0.23291957879468028
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+Test:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 M\'e9tricas de evaluaci\'f3n para el conjunto de prueba:\
+MAE: 0.10810836545833959\
+MSE: 0.025057639509715828\
+RMSE: 0.15829605020251084\
+R2: 0.16161706938024767
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+Errores:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 3.png \width12820 \height9800 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf2 \
+\
+\
+
+\fs70 ************************************************************************\
+
+\fs28 Y Normalizada\
+\
+Todas:\
+Train:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 MAE: 0.10117637913287357\
+MSE: 0.01902406915114384\
+RMSE: 0.13792776787559435\
+R2: 0.37925521017318253
+\f0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf2 \
+Test:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 MAE: 0.11274825874423028\
+MSE: 0.024026651120765068\
+RMSE: 0.15500532610450865\
+R2: 0.19611206108241208
+\f0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf2 Errores:\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {{\NeXTGraphic Pasted Graphic 4.png \width12660 \height9920 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\sl340\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 Lasso:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 \cb3 \outl0\strokewidth0 \strokec2 Coeficiente de targeted_productivity: 0.3809767366600542\
+Coeficiente de smv: -0.3324459146662267\
+Coeficiente de wip: 0.028501841158882105\
+Coeficiente de over_time: -0.030850999257934743\
+Coeficiente de idle_men: -0.15358470353219753\
+Coeficiente de no_of_workers: 0.3868219355973268\
+Coeficiente de quarter_Quarter3: -0.020128916594926504\
+Coeficiente de quarter_Quarter4: -0.07550511854576951\
+Coeficiente de quarter_Quarter5: 0.19899424313377045\
+Coeficiente de department_finishing : 0.30591094742216646\
+Coeficiente de day_Saturday: 0.11709543237901011\
+Coeficiente de day_Thursday: -0.03783488131588313\
+Coeficiente de day_Tuesday: 0.047487169504481855\
+Coeficiente de team_3: 0.19119300677364345\
+Coeficiente de team_4: 0.0670599609613948\
+Coeficiente de team_6: -0.15225833591486823\
+Coeficiente de team_7: -0.24830205768084224\
+Coeficiente de team_8: -0.17229669258744135\
+Coeficiente de team_10: -0.19738209997984366\
+Coeficiente de team_11: -0.32298966451272676\
+Coeficiente de no_of_style_change_1: -0.23425939635093157\
+Intercept:  0.012567362735334868
+\f0 \cf4 \cb3 \outl0\strokewidth0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf4 \
+Train:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 \cb3 \outl0\strokewidth0 \strokec2 MAE: 0.10266400303960817\
+MSE: 0.020131329721117856\
+RMSE: 0.13792776787559435\
+R2: 0.3431259139468431
+\f0 \cf4 \cb3 \outl0\strokewidth0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf4 \
+Test:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 \cb3 \outl0\strokewidth0 \strokec2 MAE: 0.10803860711161523\
+MSE: 0.023707909904563687\
+RMSE: 0.13792776787559435\
+R2: 0.206776561018434
+\f0 \cf4 \cb3 \outl0\strokewidth0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf4 Errores:\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {{\NeXTGraphic Pasted Graphic 5.png \width12660 \height9780 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 Bagging:\
+\
+Train:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 \cb3 \outl0\strokewidth0 \strokec2 M\'e9tricas de evaluaci\'f3n para el conjunto de entrenamiento:\
+MAE: 0.10239839841940647\
+MSE: 0.019462427083545307\
+RMSE: 0.13950780294859963\
+R2: 0.3649518347777506\
+
+\f0 \cf4 \cb3 \outl0\strokewidth0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf4 Test:\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1 \cf2 \cb3 \outl0\strokewidth0 \strokec2 M\'e9tricas de evaluaci\'f3n para el conjunto de prueba:\
+MAE: 0.11284934110606655\
+MSE: 1.41002227389941\
+RMSE: 1.1874435876703406\
+R2: 0.19238729584100123\
+
+\f0 \cf4 \cb3 \outl0\strokewidth0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf4 Errores:\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {{\NeXTGraphic Pasted Graphic 6.png \width12580 \height9840 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf2 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

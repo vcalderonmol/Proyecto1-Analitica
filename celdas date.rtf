@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red245\green245\blue245;\red144\green1\blue18;
+\red19\green85\blue52;\red15\green112\blue1;\red0\green0\blue255;\red101\green76\blue29;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c96863\c96863\c96863;\cssrgb\c63922\c8235\c8235;
+\cssrgb\c6667\c40000\c26667;\cssrgb\c0\c50196\c0;\cssrgb\c0\c0\c100000;\cssrgb\c47451\c36863\c14902;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 data_df[\cf4 \strokec4 'date'\cf2 \strokec2 ].value_counts().plot(kind=\cf4 \strokec4 'pie'\cf2 \strokec2 , figsize=(\cf5 \strokec5 4\cf2 \strokec2 , \cf5 \strokec5 4\cf2 \strokec2 ), autopct=\cf4 \strokec4 '%1.1f%%'\cf2 \strokec2 )\cb1 \
+\cb3 plt.title(\cf4 \strokec4 'Distribution of Date'\cf2 \strokec2 )\cb1 \
+\cb3 plt.ylabel(\cf4 \strokec4 ''\cf2 \strokec2 )\cb1 \
+\cb3 plt.show()\cb1 \
+\
+\
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb3 \strokec6 # Diagrama de Viol\'edn de la variable 'date'\cf2 \cb1 \strokec2 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \cb3 plt.figure(figsize=(\cf5 \strokec5 8\cf2 \strokec2 , \cf5 \strokec5 6\cf2 \strokec2 ))\cb1 \
+\cb3 sns.violinplot(x=\cf4 \strokec4 'date'\cf2 \strokec2 , data=data_df)\cb1 \
+\cb3 plt.title(\cf4 \strokec4 'Diagrama de Viol\'edn de la variable "date"'\cf2 \strokec2 )\cb1 \
+\cb3 plt.xlabel(\cf4 \strokec4 'Fecha'\cf2 \strokec2 )\cb1 \
+\cb3 plt.ylabel(\cf4 \strokec4 'Distribuci\'f3n'\cf2 \strokec2 )\cb1 \
+\cb3 plt.xticks(rotation=\cf5 \strokec5 45\cf2 \strokec2 )\cb1 \
+\cb3 plt.grid(\cf7 \strokec7 True\cf2 \strokec2 )\cb1 \
+\cb3 plt.show()\cb1 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb3 \strokec6 # Tabla de Frecuencia de la variable 'date'\cf2 \cb1 \strokec2 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \cb3 date_frequency_table = data_df[\cf4 \strokec4 'date'\cf2 \strokec2 ].value_counts().reset_index()\cb1 \
+\cb3 date_frequency_table.columns = [\cf4 \strokec4 'Fecha'\cf2 \strokec2 , \cf4 \strokec4 'Frecuencia'\cf2 \strokec2 ]\cb1 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf8 \cb3 \strokec8 print\cf2 \strokec2 (date_frequency_table)\cb1 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb3 \strokec6 # Gr\'e1fico de Barras de la variable 'date'\cf2 \cb1 \strokec2 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \cb3 plt.figure(figsize=(\cf5 \strokec5 10\cf2 \strokec2 , \cf5 \strokec5 6\cf2 \strokec2 ))\cb1 \
+\cb3 sns.countplot(x=\cf4 \strokec4 'date'\cf2 \strokec2 , data=data_df, palette=\cf4 \strokec4 'viridis'\cf2 \strokec2 , order = data_df[\cf4 \strokec4 'date'\cf2 \strokec2 ].value_counts().index)\cb1 \
+\cb3 plt.title(\cf4 \strokec4 'Gr\'e1fico de Barras de la variable "date"'\cf2 \strokec2 )\cb1 \
+\cb3 plt.xlabel(\cf4 \strokec4 'Fecha'\cf2 \strokec2 )\cb1 \
+\cb3 plt.ylabel(\cf4 \strokec4 'Frecuencia'\cf2 \strokec2 )\cb1 \
+\cb3 plt.xticks(rotation=\cf5 \strokec5 45\cf2 \strokec2 )\cb1 \
+\cb3 plt.grid(\cf7 \strokec7 True\cf2 \strokec2 )\cb1 \
+\cb3 plt.show()\cb1 \
+\
+\
+\cb3 unique_categories = data_df[\cf4 \strokec4 'date'\cf2 \strokec2 ].unique()\cb1 \
+\cb3 unique_categories.shape[\cf5 \strokec5 0\cf2 \strokec2 ]\cb1 \
+}
