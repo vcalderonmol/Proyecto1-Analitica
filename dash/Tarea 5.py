@@ -51,18 +51,18 @@ app.layout = html.Div([
 
 # Función para realizar predicciones
 def predict_productivity(targeted_productivity, smv, idle_men):
-    # Aquí podrías incluir el cálculo de la predicción y el error estándar
-    # Por simplicidad, asumiremos un error estándar de 0.1 para este ejemplo
-    predicted_productivity = 0.734 + 0.065 * targeted_productivity - 0.006 * smv - 0.023 * idle_men
-    standard_error = 0.1  # Esto sería el error estándar que necesitas estimar correctamente
+    predicted_productivity = 0.767 + 0.0623 * targeted_productivity - 0.007 * smv - 0.021 * idle_men
+    predicted_productivity = max(0, min(1, predicted_productivity))
+    standard_error = 0.1
+
 
     return predicted_productivity, standard_error
 
 # Callback para realizar predicciones y mostrar los resultados
 @app.callback(Output('output-data-upload', 'children'),
-              [Input('targeted-productivity', 'value'),
-               Input('smv', 'value'),
-               Input('idle-men', 'value')])
+            [Input('targeted-productivity', 'value'),
+            Input('smv', 'value'),
+            Input('idle-men', 'value')])
 def update_output(targeted_productivity, smv, idle_men):
     if targeted_productivity is None or smv is None or idle_men is None:
         raise PreventUpdate
@@ -76,14 +76,18 @@ def update_output(targeted_productivity, smv, idle_men):
 
     # Realizar predicciones solo si targeted_productivity es menor o igual a 1
     predicted_productivity, standard_error = predict_productivity(targeted_productivity, smv, idle_men)
+    lower_bound = predicted_productivity - 1.96 * standard_error
+    upper_bound = predicted_productivity + 1.96 * standard_error
+    lower_bound = max(0, min(1, lower_bound))
+    upper_bound = max(0, min(1, upper_bound))
 
     # Crear el resultado de la predicción
     prediction_result = html.Div([
         html.H5('Resultados de Predicción'),
         html.Label(f'Productividad Predicha: {round(predicted_productivity*100,2)}%'),
         html.Br(),
-        html.Label(f'Intervalo de Confianza (95%): [{round((predicted_productivity - 1.96 * standard_error)*100,2)}%,{round((predicted_productivity + 1.96 * standard_error)*100,2)}%]')
-    ])
+        html.Label(f'Intervalo de Confianza: ({round(lower_bound*100,2)}%, {round(upper_bound*100,2)}%)')
+        ])
 
     return prediction_result
 
@@ -101,9 +105,12 @@ def update_graph(targeted_productivity, smv, idle_men):
 
     # Crear datos para la gráfica
     x_values = np.linspace(0, 1, 100)
-    y_values = 0.734 + 0.065 * x_values - 0.006 * smv - 0.023 * idle_men
+    y_values = 0.767 + 0.0623 * x_values - 0.007 * smv - 0.021 * idle_men
+    y_values = np.maximum(0, np.minimum(1, y_values))
     lower_bound = y_values - 1.96 * standard_error
+    lower_bound = np.maximum(0, np.minimum(1, lower_bound))
     upper_bound = y_values + 1.96 * standard_error
+    upper_bound = np.maximum(0, np.minimum(1, upper_bound))
 
     # Crear la figura de la gráfica
     fig = {
